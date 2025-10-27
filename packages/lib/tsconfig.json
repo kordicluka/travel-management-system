@@ -1,0 +1,9 @@
+{
+  "extends": "@travel-management-system/typescript-config/base.json",
+  "compilerOptions": {
+    // tsc is only for type-checking, tsup handles the build.
+    "noEmit": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

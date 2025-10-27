@@ -1,0 +1,58 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  refreshToken String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Airport {
+  id                 String    @id @default(cuid())
+  name               String
+  code               String    @unique
+  country            String
+  latitude           Float
+  longitude          Float
+  servicedByAirlines Airline[] @relation("AirlineServicedAirports")
+  routesFrom         Route[]   @relation("FromAirport")
+  routesTo           Route[]   @relation("ToAirport")
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model Airline {
+  id               String    @id @default(cuid())
+  name             String
+  baseCountry      String
+  servicedAirports Airport[] @relation("AirlineServicedAirports")
+  operatedRoutes   Route[]
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Route {
+  id            String   @id @default(cuid())
+  fromAirportId String
+  fromAirport   Airport  @relation("FromAirport", fields: [fromAirportId], references: [id], onDelete: Cascade)
+  toAirportId   String
+  toAirport     Airport  @relation("ToAirport", fields: [toAirportId], references: [id], onDelete: Cascade)
+  airlineId     String
+  airline       Airline  @relation(fields: [airlineId], references: [id], onDelete: Cascade)
+  distanceKm    Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([fromAirportId])
+  @@index([toAirportId])
+  @@index([airlineId])
+}

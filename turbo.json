@@ -5,10 +5,22 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "db:migrate": {
+      "env": ["DATABASE_URL"],
+      "cache": false
+    },
+    "db:generate": {
+      "env": ["DATABASE_URL"]
+    },
+    "db:studio": {
+      "env": ["DATABASE_URL"],
+      "cache": false
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "env": ["PORT"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
@@ -16,6 +28,11 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "start:prod": {
+      "cache": false,
+      "persistent": true
     }
-  }
+  },
+  "globalDependencies": ["**/.env.*local", ".env"]
 }

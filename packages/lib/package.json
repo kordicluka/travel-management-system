@@ -1,0 +1,29 @@
+{
+  "name": "@travel-management-system/lib",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build:js": "tsup",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "pnpm clean && pnpm build:js && pnpm build:types",
+    "clean": "rm -rf dist",
+    "dev": "pnpm build:js --watch & pnpm build:types --watch"
+  },
+  "devDependencies": {
+    "@travel-management-system/typescript-config": "workspace:^",
+    "glob": "^11.0.3"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts"
+}

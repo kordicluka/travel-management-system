@@ -1,0 +1,16 @@
+// repo/packages/dtos/tsconfig.cjs.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext", // Promijenjeno iz CommonJS u NodeNext za kompatibilnost s moduleResolution
+    "moduleResolution": "NodeNext", // Mora biti usklađeno s module opcijom
+    "outDir": "./dist/cjs", // Izlazni direktorij za CJS
+    "target": "ES2020",
+    "declaration": false,
+    "declarationMap": false,
+    "emitDeclarationOnly": false,
+    "noEmit": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist", "build", "node_modules", "**/*.test.ts"]
+}

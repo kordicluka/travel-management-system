@@ -1,0 +1,34 @@
+{
+  "name": "@travel-management-system/schemas",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build:js": "tsup",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "pnpm build:js && pnpm build:types",
+    "clean": "rm -rf dist",
+    "dev": "pnpm build:js --watch & pnpm build:types --watch"
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@prisma/client": "^6.18.0",
+    "@travel-management-system/typescript-config": "workspace:^",
+    "glob": "^11.0.3",
+    "prisma-zod-generator": "^1.29.1"
+  }
+}

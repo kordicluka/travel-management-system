@@ -1,0 +1,43 @@
+{
+  "name": "@travel-management-system/database",
+  "version": "1.0.0",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo dist",
+    "build:js": "tsup",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "pnpm build:js && pnpm build:types",
+    "dev": "pnpm build:js --watch & pnpm build:types --watch",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:generate": "prisma generate",
+    "seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@travel-management-system/typescript-config": "workspace:^",
+    "@types/bcrypt": "^6.0.0",
+    "bcrypt": "^6.0.0",
+    "glob": "^11.0.3",
+    "prisma": "^6.18.0",
+    "tsx": "^4.20.6"
+  }
+}

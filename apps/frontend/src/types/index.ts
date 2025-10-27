@@ -1,0 +1,23 @@
+// Re-export all types from schemas package
+export type {
+  Airport,
+  AirportCreateInput,
+  AirportUpdateInput,
+  AirportQuery,
+  AirportResponse,
+  AirportIncludeQuery,
+  Airline,
+  AirlineCreateInput,
+  AirlineUpdateInput,
+  AirlineQuery,
+  AirlineResponse,
+  AirlineIncludeQuery,
+  Route,
+  RouteCreateInput,
+  RouteUpdateInput,
+  RouteQuery,
+  RouteResponse,
+  RouteIncludeQuery,
+  PaginatedResponse,
+  PaginationMeta,
+} from "@travel-management-system/schemas";
