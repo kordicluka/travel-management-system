@@ -93,11 +93,7 @@ pnpm build
 
 After building, you can start both the frontend and backend servers in production mode from the root of the monorepo:
 
-```bash
-pnpm start
-```
-
-- The frontend will be available at `http://localhost:5173`.
+- The frontend will be available at `http://localhost:4173`.
 - The backend API will be available at `http://localhost:3000`.
 
 ### 6. Running Tests
