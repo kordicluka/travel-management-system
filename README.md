@@ -63,11 +63,11 @@ This project leverages a modern, type-safe, and scalable technology stack includ
     ```
 4.  **Run Database Migrations:** Apply the schema to the database.
     ```bash
-    pnpm -w exec prisma migrate dev --name init
+    pnpm --filter database exec prisma migrate dev --name init
     ```
 5.  **Seed the Database:** Populate the database with initial data.
     ```bash
-    pnpm -w exec prisma db seed
+    pnpm --filter database exec prisma db seed
     ```
 
 ### 3. Running in Development
