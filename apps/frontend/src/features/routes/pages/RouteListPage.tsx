@@ -227,7 +227,7 @@ export function RouteListPage() {
 
       {/* Mobile: Map with drawer */}
       <div className="lg:hidden flex-1 relative h-full">
-        <div className="absolute inset-0">
+        <div className="w-full h-full">
           <RouteMap
             routes={accumulatedRoutes}
             selectedRouteId={selectedRouteId}
@@ -240,12 +240,10 @@ export function RouteListPage() {
           onOpenChange={setIsDrawerOpen}
           title="Routes List"
           itemCount={accumulatedRoutes.length}
-          className="relative z-50"
         >
           <ListContent {...listContentProps} />
         </MobileListDrawer>
       </div>
-
       <DeleteConfirmDialog
         open={deleteId !== null}
         onOpenChange={(open) => !open && setDeleteId(null)}

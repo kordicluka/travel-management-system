@@ -290,8 +290,8 @@ export function AirportListPage() {
       />
 
       {/* Mobile: Map with drawer */}
-      <div className="lg:hidden flex-1 relative h-full">
-        <div className="absolute inset-0">
+      <div className="lg:hidden z-0 flex-1 relative h-full">
+        <div className="w-full h-full">
           <AirportMap
             airports={filteredAirports}
             selectedAirportId={selectedAirportId}
@@ -305,7 +305,7 @@ export function AirportListPage() {
           onOpenChange={setIsDrawerOpen}
           title="Airports List"
           itemCount={filteredAirports.length}
-          className="relative z-50"
+          className=" z-50"
         >
           <ListContent {...listContentProps} />
         </MobileListDrawer>

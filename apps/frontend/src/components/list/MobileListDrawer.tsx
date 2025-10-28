@@ -1,12 +1,12 @@
-import { type ReactNode } from 'react';
-import { List } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { type ReactNode } from "react";
+import { List } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
-} from '@/components/ui/drawer';
+} from "@/components/ui/drawer";
 
 interface MobileListDrawerProps {
   /** Whether the drawer is open */
@@ -54,33 +54,35 @@ export function MobileListDrawer({
   title,
   children,
   itemCount,
-  buttonLabel = 'View List',
-  className,
+  buttonLabel = "View List",
 }: MobileListDrawerProps) {
   return (
     <>
-      {/* Floating button to open drawer */}
-      {!isOpen && (
-        <Button
-          className="fixed bottom-22 right-6 shadow-lg z-[1100]"
-          size="lg"
-          onClick={() => onOpenChange(true)}
-        >
-          <List className="mr-2 h-5 w-5" />
-          {buttonLabel} ({itemCount})
-        </Button>
-      )}
+      {" "}
+      <div className="absolute bottom-0 w-full z-999">
+        {/* Floating button to open drawer */}
+        {!isOpen && (
+          <Button
+            className="fixed bottom-22 right-6 shadow-lg z-999"
+            size="lg"
+            onClick={() => onOpenChange(true)}
+          >
+            <List className="mr-2 h-5 w-5" />
+            {buttonLabel} ({itemCount})
+          </Button>
+        )}
 
-      {/* Drawer with list content */}
-      <Drawer open={isOpen} onOpenChange={onOpenChange}>
-        <DrawerContent className={className || "h-1/2 z-[999]"}>
-          <DrawerHeader>
-            <DrawerTitle className="text-2xl">{title}</DrawerTitle>
-          </DrawerHeader>
+        {/* Drawer with list content */}
+        <Drawer open={isOpen} onOpenChange={onOpenChange}>
+          <DrawerContent className={"h-1/2 z-999"}>
+            <DrawerHeader>
+              <DrawerTitle className="text-2xl">{title}</DrawerTitle>
+            </DrawerHeader>
 
-          <div className="mt-4 relative px-4 overflow-auto">{children}</div>
-        </DrawerContent>
-      </Drawer>
+            <div className="mt-4 px-4 overflow-auto">{children}</div>
+          </DrawerContent>
+        </Drawer>
+      </div>
     </>
   );
 }
