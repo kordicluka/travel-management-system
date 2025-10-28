@@ -18,7 +18,7 @@ This project is a full-stack Travel Management System built as a TypeScript mono
 
 ### Optional Enhancements (Bonus Points)
 
-- **Interactive Map:** Implemented.
+- **Interactive Map:** Implemented. The list of airports is filtered dynamically based on the visible map area (latitude and longitude boundaries), similar to modern real-estate websites.
 
 - **Search & Filtering:** Implemented.
 
