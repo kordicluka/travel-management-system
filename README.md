@@ -38,6 +38,13 @@ This project is a full-stack Travel Management System built as a TypeScript mono
 
 - **State Management:** Implemented.
 
+## Deployed Application
+
+The application is deployed and accessible at the following URLs:
+
+*   **Frontend:** [https://travel.lukakordic.me](https://travel.lukakordic.me)
+*   **Backend API:** [https://travel-server.lukakordic.me](https://travel-server.lukakordic.me)
+
 ## Technology Stack
 
 This project leverages a modern, type-safe, and scalable technology stack including TypeScript, React, Vite, TanStack Query, Zustand, React Hook Form, shadcn/ui, Tailwind CSS, Leaflet, NestJS, Prisma, Passport.js, and Zod.
